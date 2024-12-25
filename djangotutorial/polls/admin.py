@@ -2,8 +2,9 @@ from django.contrib import admin
 from django.db import models
 from .define import *
 
+
 # Register your models here.
-from .models import Category, Article, Feed
+from .models import Category, Article, Feed, ArticleViewHistory
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'status', 'is_homepage', 'layout', 'ordering') 
@@ -45,3 +46,12 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Feed, FeedAdmin)
 
 admin.site.site_header = ADMIN_HEADER_NAME
+
+
+
+class ArticleViewHistoryAdmin(admin.ModelAdmin):
+    list_display = ('user', 'article', 'viewed_at')
+    list_filter = ('user', 'viewed_at')
+    search_fields = ('article__name', 'user__username')
+
+admin.site.register(ArticleViewHistory, ArticleViewHistoryAdmin)

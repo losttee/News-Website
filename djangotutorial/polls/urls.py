@@ -16,7 +16,16 @@ urlpatterns = [
 
     path("search", views.search, name="search"),
     
-    path('tinymce/', include('tinymce.urls')),
+    path('tinymce/', include('tinymce.urls')), 
+
+    path('register/', views.register, name='register'),
+
+    path('login/', views.user_login, name='login'),
+
+    path('logout/', views.user_logout, name='logout'),
+
+    path('view_history/', views.view_history, name='view_history'),
+    
 ]   
 
 if settings.DEBUG:

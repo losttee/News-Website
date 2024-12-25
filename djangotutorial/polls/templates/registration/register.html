@@ -1,0 +1,68 @@
+{% extends "layout-nosidebar.html" %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        margin-bottom: 30px;
+    }
+    .login-box {
+        width: 400px;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: #f9f9f9;
+        transition: transform 0.3s ease;
+    }
+    .login-box:hover {
+        transform: translateY(-5px);
+    }
+    .login-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .login-box button {
+        width: 100%;
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .login-box button:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Đăng ký</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Đăng ký</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
