@@ -6,7 +6,7 @@ from .custom_field import *
 from .define import *
 from django.urls import reverse
 
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -69,4 +69,12 @@ class Feed(models.Model):
 
     def get_absolute_url(self):
         return reverse("feed", kwargs={'feed_slug':self.slug})
+    
+class ArticleViewHistory(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    viewed_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-viewed_at']
     
