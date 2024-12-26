@@ -124,8 +124,8 @@
     transition: all 0.2s; }
     .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
       background-color: #f6f6f6; }
-    .nice-select .option.selected {
-      font-weight: bold; }
+    /* .nice-select .option.selected {
+      font-weight: bold; } */
     .nice-select .option.disabled {
       background-color: transparent;
       color: #999;
